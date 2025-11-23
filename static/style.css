@@ -1,0 +1,143 @@
+
+:root {
+    --bg-color: #f8f9fa;
+    --text-color: #2d3436;
+    --green: #1dd1a1;
+    --red: #ff6b6b;
+    --blue: #54a0ff;
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.small-container {
+    max-width: 400px;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-top: 50px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.btn-add {
+    background-color: var(--blue);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.card h3 { margin: 0 0 10px 0; font-size: 0.9em; color: #636e72; }
+.card p { margin: 0; font-size: 1.5em; font-weight: bold; }
+.receita p { color: var(--green); }
+.despesa p { color: var(--red); }
+.saldo p { color: #2d3436; }
+
+.chart-container {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.chart-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.table-container {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.row-receita td { border-left: 4px solid var(--green); }
+.row-despesa td { border-left: 4px solid var(--red); }
+
+.btn-delete {
+    color: var(--red);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 1px solid var(--red);
+    border-radius: 4px;
+    font-size: 0.8em;
+}
+
+.btn-delete:hover {
+    background-color: var(--red);
+    color: white;
+}
+
+.form-group { margin-bottom: 15px; }
+label { display: block; margin-bottom: 5px; font-weight: bold; }
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.btn-save {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--green);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+.btn-back {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #636e72;
+    text-decoration: none;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Controle Financeiro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Painel Financeiro</h1>
+            <a href="/adicionar" class="btn-add">+ Novo Lançamento</a>
+        </header>
+
+        <div class="cards-container">
+            <div class="card receita">
+                <h3>Receitas</h3>
+                <p>R$ {{ "%.2f"|format(receita) }}</p>
+            </div>
+            <div class="card despesa">
+                <h3>Despesas</h3>
+                <p>R$ {{ "%.2f"|format(despesa) }}</p>
+            </div>
+            <div class="card saldo">
+                <h3>Saldo Atual</h3>
+                <p>R$ {{ "%.2f"|format(saldo) }}</p>
+            </div>
+        </div>
+
+        {% if grafico %}
+        <div class="chart-container">
+            <img src="data:image/png;base64,{{ grafico }}" alt="Gráfico Financeiro">
+        </div>
+        {% endif %}
+
+        <div class="table-container">
+            <h2>Histórico Recente</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Tipo</th>
+                        <th>Categoria</th>
+                        <th>Valor</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in transacoes %}
+                    <tr class="{{ 'row-receita' if item.tipo == 'Receita' else 'row-despesa' }}">
+                        <td>{{ item.data }}</td>
+                        <td>{{ item.tipo }}</td>
+                        <td>{{ item.categoria }}</td>
+                        <td>R$ {{ "%.2f"|format(item.valor) }}</td>
+                        <td>
+                            <a href="/deletar/{{ item.id }}" class="btn-delete">X</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
